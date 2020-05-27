@@ -1,0 +1,6 @@
+{
+  "template": "./src/pages/template/index.js",
+  "index": "./src/pages/index/index.js",
+  "about": "./src/pages/about/index.js",
+  "demo": "./src/pages/demo/index.js"
+}
