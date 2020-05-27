@@ -1,7 +1,7 @@
 
 ## 简介
 
-Webpack4 实现多入口多页面开发。
+Webpack4 + jQuery + Bootstrap4 技术栈实现多页面开发。
 
 ## 目标
 
