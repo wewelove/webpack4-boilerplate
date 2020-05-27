@@ -165,7 +165,7 @@ npm install --save-dev url-loader file-loader image-webpack-loader
 | 包名 | 说明 |
 | --- | --- |
 | [url-loader](https://www.npmjs.com/package/url-loader) | A loader for webpack which transforms files into base64 URIs. |
-| [file-loader](https://www.npmjs.com/package/file-loader) | The file-loader resolves import/require() on a file into a url and emits the file into the output directory. |
+| [file-loader](https://www.npmjs.com/package/file-loader) | The file-loader resolves import/require() on a file into a url <br> and emits the file into the output directory. |
 | [image-webpack-loader](https://www.npmjs.com/package/image-webpack-loader) | Minify PNG, JPEG, GIF, SVG and WEBP images with imagemin. |
 
 **最简配置**
