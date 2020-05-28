@@ -66,7 +66,7 @@ if (argv[2] == 'new') {
         pages.push({
             "title": title,
             "filename": name + '.html',
-            "template": "./src/pages/" + name + '/index.ejs',
+            "template": "./src/pages/" + name + '/layout.ejs',
             "chunks": [name, "common", "vendor", "manifest"],
             "inject": true,
             "minify": {

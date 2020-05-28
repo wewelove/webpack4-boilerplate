@@ -2,7 +2,7 @@
   {
     "title": "模板",
     "filename": "template.html",
-    "template": "./src/pages/template/index.ejs",
+    "template": "./src/pages/template/layout.ejs",
     "chunks": [
       "template",
       "common",
@@ -22,7 +22,7 @@
   {
     "title": "首页",
     "filename": "index.html",
-    "template": "./src/pages/index/index.ejs",
+    "template": "./src/pages/index/layout.ejs",
     "chunks": [
       "index",
       "common",

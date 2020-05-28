@@ -1,7 +1,7 @@
 
 ## 简介
 
-Webpack4 + jQuery + Bootstrap4 技术栈实现多页面开发。
+Webpack4 + jQuery + Bootstrap4 技术栈实现多入口多模板协同开发。
 
 ## 目标
 
@@ -37,15 +37,15 @@ Webpack4 + jQuery + Bootstrap4 技术栈实现多页面开发。
 |  |- pages  # 页面目录
 |  |  |- template  # template 页面目录
 |  |  |  |- images  # 页面图片目录
-|  |  |  |- index.ejs # 模板
+|  |  |  |- index.ejs # 布局, 模板文件
 |  |  |  |- main.html # 页面
-|  |  |  |- script.js  # 脚本
+|  |  |  |- script.js  # 脚本, 入口文件
 |  |  |  |- style.css  # 样式
 |  |  |- index  # index 页面目录
 |  |  |  |- images  # 页面图片目录
-|  |  |  |- index.ejs # 模板
+|  |  |  |- index.ejs # 布局, 模板文件
 |  |  |  |- main.html # 页面
-|  |  |  |- script.js  # 脚本
+|  |  |  |- script.js  # 脚本, 入口文件
 |  |  |  |- style.css  # 样式
 |  |- scripts   # 公共脚本文件目录
 |  |- styles    # 公共样式文件目录
