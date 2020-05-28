@@ -29,11 +29,11 @@ Webpack4 + jQuery + Bootstrap4 技术栈实现多页面开发。
 |  |- webpack.dev.conf.js  # 开发配置
 |  |- webpack.prod.conf.js  # 生产配置
 |- src # 源代码目录
-|  |- components  # 公共组件（页面）目录
-|  |  |- header.html
-|  |  |- footer.html
 |  |- fonts  # 公共字体文件目录
 |  |- images  # 公共图片资源文件目录
+|  |- include  # 页面公共组成
+|  |  |- header.html
+|  |  |- footer.html
 |  |- pages  # 页面目录
 |  |  |- template  # template 页面目录
 |  |  |  |- images  # 页面图片目录
