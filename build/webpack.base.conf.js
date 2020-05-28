@@ -23,7 +23,19 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(html)$/i,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            minimize: false,
+                            esModule: false
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(js)$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
@@ -33,7 +45,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(sa|sc|c)ss$/i,
+                test: /\.(sass|scss|css)$/i,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -51,7 +63,8 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 5120, // 5k
+                        esModule: false,
+                        limit: 1024, // 1k
                         name: '[name].[hash:8].[ext]', // 输出文件名
                         outputPath: 'imgs/' // 输出目录, 相对 dist
                     }
@@ -66,7 +79,7 @@ module.exports = {
                         outputPath: 'fonts/' // 输出目录, 相对 dist
                     }
                 }]
-            },
+            }
         ]
     },
     plugins: [
@@ -74,7 +87,8 @@ module.exports = {
 		new Webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery",
-			'window.jQuery': 'jquery'
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default']
 		}),
         // 生成 html webpack plugin 插件配置
         ...pages.map(page => new HtmlWebpackPlugin(page)),
@@ -98,7 +112,7 @@ module.exports = {
                     }
                 ]
             },
-            canPrint: true
+            canPrint: false
         })
     ],
     optimization: {
@@ -127,6 +141,7 @@ module.exports = {
         alias: {
             // 指定目录别名
             '@': src
-        }
-    },
+        },
+        extensions: ['.js', '.json', '.scss']
+    }
 }

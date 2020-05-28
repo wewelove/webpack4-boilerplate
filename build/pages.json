@@ -2,13 +2,12 @@
   {
     "title": "模板",
     "filename": "template.html",
-    "template": "./src/pages/template/index.html",
+    "template": "./src/pages/template/index.ejs",
     "chunks": [
-      "index",
-      "vendor",
+      "template",
       "common",
-      "manifest",
-      "styles"
+      "vendor",
+      "manifest"
     ],
     "inject": true,
     "minify": {
@@ -23,58 +22,18 @@
   {
     "title": "首页",
     "filename": "index.html",
-    "template": "./src/pages/index/index.html",
+    "template": "./src/pages/index/index.ejs",
     "chunks": [
       "index",
-      "vendor",
       "common",
+      "vendor",
       "manifest"
     ],
     "inject": true,
     "minify": {
       "collapseWhitespace": false,
       "removeComments": false,
-      "removeRedundantAttributes": true,
-      "removeScriptTypeAttributes": true,
-      "removeStyleLinkTypeAttributes": true,
-      "useShortDoctype": true
-    }
-  },
-  {
-    "title": "关于",
-    "filename": "about.html",
-    "template": "./src/pages/about/index.html",
-    "chunks": [
-      "index",
-      "vendor",
-      "common",
-      "manifest",
-      "styles"
-    ],
-    "inject": true,
-    "minify": {
-      "collapseWhitespace": false,
-      "removeComments": false,
-      "removeRedundantAttributes": true,
-      "removeScriptTypeAttributes": true,
-      "removeStyleLinkTypeAttributes": true,
-      "useShortDoctype": true
-    }
-  },
-  {
-    "title": "演示",
-    "filename": "demo.html",
-    "template": "./src/pages/demo/index.html",
-    "chunks": [
-      "index",
-      "vendor",
-      "common",
-      "manifest"
-    ],
-    "inject": true,
-    "minify": {
-      "collapseWhitespace": false,
-      "removeComments": false,
+      "collapseBooleanAttributes": true,
       "removeRedundantAttributes": true,
       "removeScriptTypeAttributes": true,
       "removeStyleLinkTypeAttributes": true,

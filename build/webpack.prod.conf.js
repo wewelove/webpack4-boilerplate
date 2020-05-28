@@ -14,7 +14,7 @@ module.exports = merge(base, {
     plugins: [
         // 清理 dist 文件夹, 忽略 favicon.* 文件
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['**/*', '!favicon.*'],
+            cleanOnceBeforeBuildPatterns: ['**/*', '!favicon.*', '!.gitignore'],
         }),
         new Webpack.DefinePlugin({
             'process.env': env,

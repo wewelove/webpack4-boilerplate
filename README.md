@@ -29,24 +29,24 @@ Webpack4 + jQuery + Bootstrap4 技术栈实现多页面开发。
 |  |- webpack.dev.conf.js  # 开发配置
 |  |- webpack.prod.conf.js  # 生产配置
 |- src # 源代码目录
+|  |- components  # 公共组件（页面）目录
+|  |  |- header.html
+|  |  |- footer.html
 |  |- fonts  # 公共字体文件目录
 |  |- images  # 公共图片资源文件目录
 |  |- pages  # 页面目录
 |  |  |- template  # template 页面目录
 |  |  |  |- images  # 页面图片目录
-|  |  |  |- index.html # html 页面
-|  |  |  |- index.js  # 入口文件
-|  |  |  |- index.css  # 样式文件
+|  |  |  |- index.ejs # 模板
+|  |  |  |- main.html # 页面
+|  |  |  |- script.js  # 脚本
+|  |  |  |- style.css  # 样式
 |  |  |- index  # index 页面目录
 |  |  |  |- images  # 页面图片目录
-|  |  |  |- index.html
-|  |  |  |- index.js
-|  |  |  |- index.css
-|  |  |- about  # about 页面目录
-|  |  |  |- images  # 页面图片目录
-|  |  |  |- index.html
-|  |  |  |- index.js
-|  |  |  |- index.css
+|  |  |  |- index.ejs # 模板
+|  |  |  |- main.html # 页面
+|  |  |  |- script.js  # 脚本
+|  |  |  |- style.css  # 样式
 |  |- scripts   # 公共脚本文件目录
 |  |- styles    # 公共样式文件目录
 |- .gitignore
