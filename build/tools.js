@@ -54,7 +54,7 @@ if (argv[2] == 'new') {
         }
 
         // 更新入口配置
-        entry[name] = './src/pages/' + name + '/script.js';
+        entry[name] = './src/pages/' + name + '/index.js';
         jsonfile.writeFileSync(entryFile, entry, {
             spaces: 2,
             EOL: '\r\n'
@@ -66,18 +66,10 @@ if (argv[2] == 'new') {
         pages.push({
             "title": title,
             "filename": name + '.html',
-            "template": "./src/pages/" + name + '/layout.ejs',
+            "template": "./src/pages/" + name + '/index.html',
             "chunks": [name, "common", "vendor", "manifest"],
             "inject": true,
-            "minify": {
-                "collapseWhitespace": false,
-                "removeComments": false,
-                "collapseBooleanAttributes": true,
-                "removeRedundantAttributes": true,
-                "removeScriptTypeAttributes": true,
-                "removeStyleLinkTypeAttributes": true,
-                "useShortDoctype": true
-            }
+            "minify": false
         });
         jsonfile.writeFileSync(pagesFile, pages, {
             spaces: 2,

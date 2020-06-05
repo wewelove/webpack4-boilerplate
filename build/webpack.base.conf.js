@@ -20,10 +20,13 @@ module.exports = {
         publicPath: '/',
         filename: 'js/[name].[hash:8].js',
     },
+    performance: {
+        hints: false
+    },
     module: {
         rules: [
             {
-                test: /\.(html)$/i,
+                test: /\.(ejs)$/i,
                 use: [
                     {
                         loader: 'html-loader',
@@ -31,11 +34,14 @@ module.exports = {
                             minimize: false,
                             esModule: false
                         }
+                    },
+                    {
+                        loader: 'ejs-plain-loader'
                     }
                 ]
             },
             {
-                test: /\.(js)$/,
+                test: /\.(js)$/i,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
@@ -84,11 +90,12 @@ module.exports = {
     },
     plugins: [
         // 自动加载模块
-		new Webpack.ProvidePlugin({
+        new Webpack.ProvidePlugin({
+            _: "lodash",
 			$: "jquery",
 			jQuery: "jquery",
-            'window.jQuery': 'jquery',
-            Popper: ['popper.js', 'default']
+            Popper: ['popper.js', 'default'],
+            moment: "moment"
 		}),
         // 生成 html webpack plugin 插件配置
         ...pages.map(page => new HtmlWebpackPlugin(page)),

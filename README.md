@@ -31,21 +31,21 @@ Webpack4 + jQuery + Bootstrap4 技术栈实现多入口多模板协同开发。
 |- src # 源代码目录
 |  |- fonts  # 公共字体文件目录
 |  |- images  # 公共图片资源文件目录
-|  |- include  # 页面公共组成
-|  |  |- header.html
-|  |  |- footer.html
+|  |- include  # 页面公共部分
+|  |  |- header.ejs
+|  |  |- footer.ejs
 |  |- pages  # 页面目录
 |  |  |- template  # template 页面目录
 |  |  |  |- images  # 页面图片目录
-|  |  |  |- index.ejs # 布局, 模板文件
-|  |  |  |- main.html # 页面
-|  |  |  |- script.js  # 脚本, 入口文件
+|  |  |  |- index.html # 布局, 模板文件
+|  |  |  |- main.ejs # 页面局部
+|  |  |  |- index.js  # 脚本, 入口文件
 |  |  |  |- style.css  # 样式
 |  |  |- index  # index 页面目录
 |  |  |  |- images  # 页面图片目录
-|  |  |  |- index.ejs # 布局, 模板文件
-|  |  |  |- main.html # 页面
-|  |  |  |- script.js  # 脚本, 入口文件
+|  |  |  |- index.html # 布局, 模板文件
+|  |  |  |- main.ejs # 页面局部
+|  |  |  |- index.js  # 脚本, 入口文件
 |  |  |  |- style.css  # 样式
 |  |- scripts   # 公共脚本文件目录
 |  |- styles    # 公共样式文件目录

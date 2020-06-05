@@ -1,4 +1,4 @@
 {
-  "template": "./src/pages/template/script.js",
-  "index": "./src/pages/index/script.js"
+  "template": "./src/pages/template/index.js",
+  "index": "./src/pages/index/index.js"
 }

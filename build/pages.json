@@ -2,7 +2,7 @@
   {
     "title": "模板",
     "filename": "template.html",
-    "template": "./src/pages/template/layout.ejs",
+    "template": "./src/pages/template/index.html",
     "chunks": [
       "template",
       "common",
@@ -10,19 +10,12 @@
       "manifest"
     ],
     "inject": true,
-    "minify": {
-      "collapseWhitespace": false,
-      "removeComments": false,
-      "removeRedundantAttributes": true,
-      "removeScriptTypeAttributes": true,
-      "removeStyleLinkTypeAttributes": true,
-      "useShortDoctype": true
-    }
+    "minify": false
   },
   {
     "title": "首页",
     "filename": "index.html",
-    "template": "./src/pages/index/layout.ejs",
+    "template": "./src/pages/index/index.html",
     "chunks": [
       "index",
       "common",
@@ -30,14 +23,6 @@
       "manifest"
     ],
     "inject": true,
-    "minify": {
-      "collapseWhitespace": false,
-      "removeComments": false,
-      "collapseBooleanAttributes": true,
-      "removeRedundantAttributes": true,
-      "removeScriptTypeAttributes": true,
-      "removeStyleLinkTypeAttributes": true,
-      "useShortDoctype": true
-    }
+    "minify": false
   }
 ]
