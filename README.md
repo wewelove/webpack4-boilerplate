@@ -79,10 +79,10 @@ module.exports = {
 
 ```sh
 # 克隆
-git clone project
+git clone https://github.com/wewelove/webpack4-boilerplate.git <project>
 
 # 安装依赖
-cd project & npn install
+cd <project> & npn install
 
 # 开发，开启本地服务
 npm run dev
@@ -247,6 +247,41 @@ module: {
 
 ```
 
+#### 模板
+```sh
+npm install --save-dev html-loader
+npm install --save-dev ejs-plain-loader
+```
+
+| 包名 | 说明 |
+| --- | --- |
+| [html-loader](https://www.npmjs.com/package/html-loader) | Exports HTML as string. |
+| [ejs-plain-loader](https://www.npmjs.com/package/ejs-plain-loader) | It converts EJS templates to plain HTML using the EJS npm package. |
+
+**最简配置**
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.(ejs)$/,
+      use: [
+        {
+          loader: 'html-loader',
+          options: {
+            minimize: false,
+            esModule: false
+          }
+        },
+        {
+          loader: 'ejs-plain-loader'
+        }
+      ]
+    }
+  ]
+}
+```
+
 #### 编译 
 
 ```sh
@@ -267,7 +302,7 @@ npm install --save-dev @babel/plugin-transform-runtime
 module: {
   rules: [
     {
-      test: /\.js$/,
+      test: /\.(js)$/,
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',

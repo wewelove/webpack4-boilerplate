@@ -2,6 +2,7 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin');
 
 // 基本配置
 const base = require('./webpack.base.conf');
@@ -16,6 +17,7 @@ module.exports = merge(base, {
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['**/*', '!favicon.*', '!.gitignore'],
         }),
+        new BeautifyHtmlWebpackPlugin(),
         new Webpack.DefinePlugin({
             'process.env': env,
         })
