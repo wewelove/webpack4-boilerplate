@@ -17,7 +17,12 @@ module.exports = merge(base, {
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['**/*', '!favicon.*', '!.gitignore'],
         }),
-        new BeautifyHtmlWebpackPlugin(),
+        new BeautifyHtmlWebpackPlugin({
+            html: {
+                inline: ['i', 'b', 'span'],
+                unformatted: ['p']
+            }
+        }),
         new Webpack.DefinePlugin({
             'process.env': env,
         })
