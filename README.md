@@ -7,11 +7,13 @@ Webpack4 + jQuery + Bootstrap4 技术栈实现多入口多模板协同开发。
 
 - [X] 支持多入口，多页面
 - [X] 支持 ES6 语法
-- [X] 自动加载模块，如 jQuery
+- [X] 支持全局加载
 - [X] 支持图片压缩
+- [X] 支持 ejs 模板语法 
+- [X] 支持 html 美化
+- [X] 支持图片 src 处理
 - [X] 支持 css 文件抽取
-- [X] 支持 common 抽取
-- [X] 支持 vendor 抽取
+- [X] 支持 common、vendor 公共代码抽取
 - [X] 开发环境支持文件变化监听
 - [X] 开发环境支持模块热替换
 - [X] 命令行创建和删除页面
@@ -101,6 +103,54 @@ npm run new <name> <title> [<template>]
 npm run del <name>
 ```
 
+每个页面的目录结构大致如下：
+
+```
+pages
+|- index  # index 页面目录
+|  |- images  # 页面图片目录
+|  |- index.html # 布局, 模板文件
+|  |- main.ejs # 页面局部
+|  |- section.ejs # 页面局部
+|  |- index.js  # 脚本, 入口文件
+|  |- style.css  # 样式
+```
+
+`images` 页面图片存放目录，图片路径问题由 `html-loader` 处理。
+
+`index.html` 布局页面， `html-webpack-plugin` 模板文件，支持 `lodash` 模板语法，[参考](https://lodash.com/docs/4.17.15#template)。`header.ejs` `footer.ejs` 为页面公共部分页头、页脚，支持 ejs 语法。
+
+```html
+<%= require('@/include/header.ejs') %>
+
+<%= require('./main.ejs') %>
+
+<%= require('@/include/footer.ejs') %>
+```
+
+`main.ejs` `section.ejs` 页面局部，支持 ejs 语法，[参考](https://ejs.bootcss.com/)。开发时建议将页面的逻辑细节全部放在 ejs 文件中，尽量保持 `index.html` 文件的简洁。
+
+`index.js` 页面入口文件。
+
+```js
+// 导入样式
+import 'bootstrap/scss/bootstrap';
+import '@/styles/common';
+import './style';
+
+// 导入脚本, jQuery、Popper  通过全局引入
+import 'bootstrap';
+import '@/scripts/common'
+
+// 页面
+$(function () {
+    console.log('page');
+});
+```
+
+`style.scss` 页面样式文件。
+
+
 ## NPM 包 
 
 ### 基本
@@ -116,7 +166,7 @@ npm install --save-dev webpack webpack-cli webpack-merge webpack-dev-server
 | [webpack-merge](https://www.npmjs.com/package/webpack-merge) | Merge configuration objects. |
 | [webpack-dev-server](https://www.npmjs.com/package/webpack-dev-server) | Use webpack with a development server that provides live reloading. |
 
-### Loaders
+### 模块 Loaders
 
 #### 样式
 
@@ -248,6 +298,7 @@ module: {
 ```
 
 #### 模板
+
 ```sh
 npm install --save-dev html-loader
 npm install --save-dev ejs-plain-loader
@@ -335,7 +386,7 @@ npm install --save-dev babel-eslint eslint-plugin-html
 | babel-eslint | |
 | eslint-plugin-html | |
 
-### Plugins
+### 插件 Plugins
 
 ```sh
 npm install --save-dev copy-webpack-plugin
@@ -343,6 +394,7 @@ npm install --save-dev clean-webpack-plugin
 npm install --save-dev html-webpack-plugin
 npm install --save-dev mini-css-extract-plugin
 npm install --save-dev optimize-css-assets-webpack-plugin cssnano
+npm install --save-dev beautify-html-webpack-plugin
 ```
 
 | 包名 | 说明 |
@@ -353,3 +405,5 @@ npm install --save-dev optimize-css-assets-webpack-plugin cssnano
 | [mini-css-extract-plugin](https://www.npmjs.com/package/mini-css-extract-plugin) | This plugin extracts CSS into separate files. Requires webpack 4 to work. |
 | [optimize-css-assets-webpack-plugin](https://www.npmjs.com/package/optimize-css-assets-webpack-plugin) | A Webpack plugin to optimize \ minimize CSS assets. |
 | [cssnano](https://www.npmjs.com/package/cssnano) | cssnano takes your nicely formatted CSS. |
+| [beautify-html-webpack-plugin](https://www.npmjs.com/package/beautify-html-webpack-plugin) | The hook of html-webpack-plugin, beautifies HTML output, for Webpack4. |
+
